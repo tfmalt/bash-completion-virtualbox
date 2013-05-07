@@ -192,7 +192,7 @@ _vboxmanage() {
 	    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 	    return 0
 	    ;;
-	controlvm)
+	controlvm|showvminfo)
 	    opts=$(__vboxmanage_list_vms)
 	    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 	    return 0
