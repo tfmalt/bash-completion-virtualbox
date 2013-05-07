@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
 _vboxmanage_realopts() {
     echo $(vboxmanage|grep -i vboxmanage|cut -d' ' -f2|grep '\['|tr -s '[\[\|\]\n' ' ')
     echo " "
@@ -219,4 +220,5 @@ _vboxmanage() {
 
     # echo "Got to end withoug completion"
 }
+
 complete -F _vboxmanage vboxmanage
