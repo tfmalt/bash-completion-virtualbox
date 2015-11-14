@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
 _vboxmanage_realopts() {
     echo $(vboxmanage|grep -i vboxmanage|cut -d' ' -f2|grep '\['|tr -s '[\[\|\]\n' ' ')
     echo " "
@@ -191,7 +192,7 @@ _vboxmanage() {
 	    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 	    return 0
 	    ;;
-	controlvm)
+	controlvm|showvminfo)
 	    opts=$(__vboxmanage_list_vms)
 	    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 	    return 0
@@ -219,4 +220,5 @@ _vboxmanage() {
 
     # echo "Got to end withoug completion"
 }
+
 complete -F _vboxmanage vboxmanage
