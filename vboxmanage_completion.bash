@@ -117,12 +117,7 @@ _vboxmanage() {
 
 
 _vboxmanage_realopts() {
-    echo $( \
-	vboxmanage | grep -i vboxmanage| \
-	cut -d' ' -f2 | \
-	grep '\[' | \
-	tr -s '[\[\]\|]' ' ' \
-    ) 
+    echo $(vboxmanage | grep -Eo "^\s{2}[a-z]+")
     echo " "
 }
 
